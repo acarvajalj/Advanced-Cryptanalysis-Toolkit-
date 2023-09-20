@@ -24,18 +24,14 @@ import math
 # then the index of coincidence is roughly the sum_i of s_i*t_i.
 #
 
+def run_ioc(tt, mo):
+    total_chars = len(tt)
+    print("off.\tcoincidence\n------------")
+    for i in range(mo):
+        coincidences = sum([1 for j, char in enumerate(tt) if char == tt[(j+i)%total_chars]])
+        x = coincidences / total_chars
+        print(f'{i}\t{x:4f}')
 
-def run_ioc(tt,mo):
-
-	print("off.\tcoincidence\n------------")
-	for i in range(mo):
-		x =
-		
-# finish this function
-
-
-		print(f'{i}\t{x:4f}')
-	
 def main(argv):
 	
 	## gather test text 

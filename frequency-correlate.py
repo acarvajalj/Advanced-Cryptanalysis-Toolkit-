@@ -26,30 +26,22 @@ import math
 #
 
 
-
 def freq_count(text):
-	# given a string text, all characters are in a-z, return
-	# a vector of frequency counts.
+    s = string.ascii_lowercase
+    v = [0] * len(s)
+    for char in text:
+        if char in s:
+            v[s.index(char)] += 1
+    total = len(text)
+    # Normalize the vector
+    return [x/total for x in v]
 
-	s = string.ascii_lowercase
-	v = [0] * len(s)
+def correlate_freqs(v1, v2, s):
+    def shifted(i, s):
+        return (i+s) % len(v1)
 
-# finish this function
-
-	return v
-
-def correlate_freqs(v1,v2,s):
-
-	def shifted(i,s):
-		return (i+s)%len(v1)
-
-	assert len(v1)==len(v2)
-	
-	c = 0
-
-# finish the this function
-
-	return c
+    c = sum([v1[i] * v2[shifted(i, s)] for i in range(len(v1))])
+    return c
 	
 def main(argv):
 	
@@ -70,12 +62,12 @@ def main(argv):
 	st_freq = freq_count(st)
 	tt_freq = freq_count(tt)
 	
-	if is_debug:
-		print("DEBUG")
-		for i in range(len(st_freq)):
-			print(f"{i}\t{st_freq[i]:.4f}\t{tt_freq[i]:.4f}")
-
-	print(f'shift\tcorrelation\n---------------')
+#	if is_debug:
+#		print("DEBUG")
+#		for i in range(len(st_freq)):
+#			print(f"{i}\t{st_freq[i]:.4f}\t{tt_freq[i]:.4f}")
+#
+#	print(f'shift\tcorrelation\n---------------')
 	for i in range(len(st_freq)):
 		c = correlate_freqs(st_freq,tt_freq,i)
 		print(f'{chr(ord("a")+i)}\t{c:.4f}')

@@ -18,12 +18,8 @@ import math
 # from stdin writes c_offset c_(offset+skip) c_(offset+2*skip) ... 
 # to stdout
 #
-
-def extract(text,offset,skip):
-
-#  finish this function 
-
-	return ""
+def extract(text, offset, skip):
+    return text[offset::skip]
 
 def main(argv):
 	
