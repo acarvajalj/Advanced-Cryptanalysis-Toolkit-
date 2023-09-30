@@ -6,15 +6,15 @@
 #
 
 
-CHALLENGE_1_KEY= isseven
-CHALLENGE_2_KEY= nohints
+CHALLENGE_1_KEY= dorothy
+CHALLENGE_2_KEY= lotharwitzke
 
 ST= standard-text.txt
 CT= ciphertext.txt
 REF_FILE= standard-text.txt
 
-OFFSET= 0
-SKIP = 3
+OFFSET ?= 0
+SKIP ?= 12
 IOC_LIMIT = 50
 
 PY= python3
